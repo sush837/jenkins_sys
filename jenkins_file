@@ -1,0 +1,20 @@
+Pipeline{
+ agent any
+    stages{
+   Stage('checkout') {
+    Steps{
+          Git url:
+    }
+}
+  Stage('Build') {
+    steps{
+          sh 'mvn clean install'
+   }
+}
+  stage('test'){
+    steps{
+              sh 'mvn test'
+      }
+    }
+  }
+}   
